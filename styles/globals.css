@@ -1,3 +1,15 @@
+:root {
+  --primary-color: #0000FF;
+  --text-primary-color: #293268;
+  --text-dark-color: #1B1B1B;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+}
+
 html,
 body {
   padding: 0;
