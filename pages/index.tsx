@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
+import PrimaryButton from 'components/PrimaryButton'
 
 const Home: NextPage = () => {
   return (
@@ -14,8 +15,6 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main} >
-        <NavBar />
-
         <div className={styles.content} >
           <div className={styles.content_info} >
             <div>
@@ -26,11 +25,13 @@ const Home: NextPage = () => {
               </div>
               <div className={styles.module}>
                 <p>La libertad es una conquista y no una donación,</p>
-                <p>esto exige uns búsqueda permanente y una lucha constante por</p>
+                <p>esto exige una búsqueda permanente y una lucha constante por</p>
                 <p>la verdad la justicia y la reparación.</p>
               </div>
               <div className={styles.module}>
-                <button>Buscar la verdad</button>
+                <PrimaryButton>
+                  Buscar la verdad
+                </PrimaryButton>
               </div>
             </div>
 

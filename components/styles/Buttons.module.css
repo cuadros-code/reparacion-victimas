@@ -1,0 +1,20 @@
+
+.primary_button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  border: transparent;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease-in-out;
+}
+
+.primary_button:hover {
+  background-color: var(--primary-color-dark);
+}
+.primary_button:active {
+  background-color: var(--primary-color-light);
+}
