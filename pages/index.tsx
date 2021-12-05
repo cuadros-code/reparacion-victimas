@@ -19,19 +19,29 @@ const Home: NextPage = () => {
         <div className={styles.content} >
           <div className={styles.content_info} >
             <div>
-              <h1>Por la justicia</h1>
-              <h1>Por el derecho a la verdad</h1>
-              <h1>Por un pais mejor</h1>
-              <p>Por un pais donde la verdad y la justicia </p>
+              <div className={styles.module}>
+                <h1>Por la justicia</h1>
+                <h1>Por el derecho a la verdad</h1>
+                <h1>Por un pais mejor</h1>
+              </div>
+              <div className={styles.module}>
+                <p>La libertad es una conquista y no una donación,</p>
+                <p>esto exige uns búsqueda permanente y una lucha constante por</p>
+                <p>la verdad la justicia y la reparación.</p>
+              </div>
+              <div className={styles.module}>
+                <button>Buscar la verdad</button>
+              </div>
             </div>
+
           </div>
 
           <div className={styles.content_info}>
             <Image 
               src='/imageLogo.svg'
               alt="logo imagen"
-              width={400}
-              height={400}
+              width={700}
+              height={700}
             />
           </div>
         </div>

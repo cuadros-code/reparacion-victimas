@@ -20,3 +20,23 @@
   align-items: center;
   justify-content: center;
 }
+
+.content_info h1{
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-primary-color);
+}
+.content_info p{
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-primary-color);
+}
+
+.content_info span {
+  margin-bottom: 15px;
+}
+
+.module{
+  margin-bottom: 1.5rem;
+}
