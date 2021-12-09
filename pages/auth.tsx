@@ -1,8 +1,18 @@
+import styles from '../styles/Auth.module.css'
 
 const auth = () => {
   return (
-    <div>
-        <h1>auth</h1>      
+    <div className={styles.content} >
+      <div className={styles.content_form} >
+        <div>
+
+        </div>
+        <div>
+          <form>
+
+          </form>
+        </div>
+      </div>     
     </div>
   )
 }
