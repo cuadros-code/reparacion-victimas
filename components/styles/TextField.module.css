@@ -1,0 +1,12 @@
+
+.content{
+  margin-bottom: 15px;
+}
+.textField{
+  height: 38px;
+  font-size: 0.9rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius:  8px;
+  padding-left: 5px;
+}

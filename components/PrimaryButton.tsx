@@ -1,20 +1,17 @@
 import { ReactNode } from "react"
 import styles from './styles/Buttons.module.css'
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  onClick?: () => void;
 }
 
 const PrimaryButton = ( props: ButtonProps ) => {
-
-  const { children, onClick } = props;
-
   return (
     <button
       className={styles.primary_button}
+      {...props}
     >
-      {children}
+      {props.children}
     </button>
   )
 }
