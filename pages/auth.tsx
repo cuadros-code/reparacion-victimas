@@ -3,6 +3,7 @@ import IconButton from 'components/IconButton'
 import styles from '../styles/Auth.module.css'
 import TextField from '../components/TextField';
 import PrimaryButton from 'components/PrimaryButton';
+import Divider from 'components/Divider';
 
 const auth = () => {
   return (
@@ -21,7 +22,7 @@ const auth = () => {
             <IconButton icon='facebook'>
               Sesion con Facebook
             </IconButton>
-            
+            <Divider label='sesión con correo' />
             <form>
               <TextField label='Correo' placeholder='Ingrese el correo'/>
               <TextField label='Contraseña' placeholder='Ingrese la contraseña' type='password'/>

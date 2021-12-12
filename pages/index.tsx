@@ -29,9 +29,11 @@ const Home: NextPage = () => {
                 <p>la verdad la justicia y la reparación.</p>
               </div>
               <div className={styles.module}>
+                <div className={styles.contentButton}>
                 <PrimaryButton>
                   Buscar la verdad
                 </PrimaryButton>
+                </div>
               </div>
             </div>
 

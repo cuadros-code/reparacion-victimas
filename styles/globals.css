@@ -47,3 +47,27 @@ a {
   background: #b9b9b9;
   border-radius: 10px;
 }
+
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #b6b5b5;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #b6b5b5;
+  color: #e1e1e1;
+}
+
+.divider:not(:empty)::before {
+  margin-right: .25em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: .25em;
+}
