@@ -44,3 +44,12 @@
 .contentButton{
   width: 170px;
 } 
+
+
+@media screen and (max-width: 800px){
+
+  .content{
+    flex-direction: column;
+    height: auto;
+  }
+}

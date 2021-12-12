@@ -22,8 +22,8 @@
   border-radius: 8px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-auto-flow: dense;
 }
-
 .info{
   background-image: url('../public/auth_login.svg');
   background-position: center;
@@ -86,4 +86,30 @@
   color: var(--primary-color);
   font-weight: bold;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 1000px){
+  .content_form{
+    width: 90vw;
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+    grid-auto-flow: dense;
+  }
+
+  .center{
+    width: 80%;
+    padding: 20px 0px;
+  }
+
+  .info{
+    border-radius: 8px;
+  }
+
+  .info h1{
+    font-size: 2rem;
+    text-align: center;
+  }
 }

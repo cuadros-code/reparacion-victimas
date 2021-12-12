@@ -4,9 +4,16 @@
   align-items: center;
   padding: 0.0rem 4rem;
   background-color: #AACBE8;
-  margin: 10px 20px;
+  margin: 10px 20px 0px 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.225);
   border-radius: 10px;
+  height: 70px;
+}
+
+.buttonMenu{
+  background-color: transparent;
+  border: none;
+  display: none;
 }
 
 .title{
@@ -52,4 +59,64 @@
 }
 .links a:last-child:active{
   background-color: var(--primary-color-light);
+}
+@media screen and (max-width: 900px){
+  
+  .display{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav{
+    margin-bottom: 30px;
+    padding: 0.0rem 1rem;
+    margin: 10px 10px 0px 10px;
+  }
+
+  .activated{
+    height: auto;
+    flex-direction: column;
+  }
+
+  .links{
+    display: none;
+  }
+
+  .links .activated{
+    display: block;
+  }
+
+  .activatedLink{
+    display: flex;
+  }
+
+  .activatedLink ul{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .activatedLink ul a{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .buttonMenu{
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+  }
+
+  .buttonMenu:hover{
+    background-color: var(--primary-color-dark);
+  }
+
+  .links a:not(:last-child){
+    margin-right: 0px;
+    transition: all 0.3s ease-in-out;
+  }
 }
