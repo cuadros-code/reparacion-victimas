@@ -27,7 +27,7 @@ const IconButton = ({ children, icon, ...rest }: IconButtonProps) => {
   
   return (
     <button className={styles.iconButton} {...rest} >
-      <RenderIcon /> {children}
+      <RenderIcon /> <span></span> {children}
     </button>
   )
 }

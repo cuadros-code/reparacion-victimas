@@ -6,7 +6,12 @@
   height: 38px;
   font-size: 0.9rem;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius:  8px;
-  padding-left: 5px;
+  border: 2px solid #ccc;
+  border-radius:  7px;
+  padding-left: 8px;
+}
+
+.textField:active, .textField:focus{
+  outline: none;
+  border: 2px solid #00bcd4;
 }

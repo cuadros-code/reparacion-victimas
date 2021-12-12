@@ -12,7 +12,7 @@
 .title{
   font-size: 1.3rem;
   font-weight: bold;
-  color: var(--text-primary-color);
+  color: #fff;
   margin: 0;
   padding: 0;
 }
@@ -24,8 +24,9 @@
 }
 
 .links a{
-  color: var(--text-primary-color);
-  font-size: 1rem;
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 0.01px;
   font-weight: 700;
 }
 

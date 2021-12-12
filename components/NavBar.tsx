@@ -19,7 +19,7 @@ const NavBar = () => {
           <Link href={AppRoutes.HOME}>
             <a>Inicio</a>
           </Link>
-          <Link href=''>
+          <Link href='/'>
             <a>Sobre el proyecto</a>
           </Link>
           <Link href={AppRoutes.AUTH}>
