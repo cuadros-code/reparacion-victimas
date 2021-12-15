@@ -71,3 +71,12 @@ a {
 .divider:not(:empty)::after {
   margin-left: .25em;
 }
+
+
+.error_message {
+  color: #ff0000;
+  font-size: .8em;
+  position: relative;
+  top: -.9em;
+  margin: 0px !important;
+}
