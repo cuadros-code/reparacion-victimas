@@ -6,13 +6,40 @@ import TextField from '../components/TextField';
 import PrimaryButton from 'components/PrimaryButton';
 import Divider from 'components/Divider';
 import { AppRoutes } from 'constants/routes';
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
+import { useForm } from "react-hook-form";
+import { IFormLogin, IFormRegister } from 'interfaces/Auth.interface';
+import { schemaLogin, schemaRegister } from 'validationSchemes/Auth.validation';
 
 const Auth = () => {
 
   const [viewLogin, setViewLogin] = useState(true);
 
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors } 
+  } = useForm<IFormLogin>({
+    resolver: yupResolver(schemaLogin)
+  });
+
+  const { 
+    register: formRegister, 
+    handleSubmit : handleSubmitRegister, 
+    formState: { errors : errosRegister } 
+    } = useForm<IFormRegister>({
+    resolver: yupResolver(schemaRegister)
+  });
 
   const changeView = () => setViewLogin(!viewLogin);
+
+  const onSubmitLogin = (dataForm: IFormLogin) => {
+    console.log(dataForm);
+  }
+
+  const onSubmitRegister = (dataForm: IFormRegister) => {
+    console.log(dataForm);
+  }
 
   return (
     <div className={styles.content} >
@@ -33,15 +60,17 @@ const Auth = () => {
                     Sesion con Facebook
                   </IconButton>
                   <Divider label='sesión con correo' />
-                  <form>
-                    <TextField label='Correo' placeholder='Ingrese el correo'/>
-                    <TextField label='Contraseña' placeholder='Ingrese la contraseña' type='password'/>
+                  <form onSubmit={handleSubmit(onSubmitLogin)}>
+                    <TextField {...register("email")} label='Correo' placeholder='Ingrese el correo'/>
+                    <p className='error_message'>{errors.email?.message}</p>
+                    <TextField  {...register("password")} label='Contraseña' placeholder='Ingrese la contraseña' type='password'/>
+                    <p className='error_message'>{errors.password?.message}</p>
                     <div className={styles.linkPass}>
                       <Link href={AppRoutes.AUTH}>
                         <a>Has olvidado tu contraseña ?</a>
                       </Link>
                     </div>
-                    <PrimaryButton>
+                    <PrimaryButton type='submit'>
                       Iniciar sesión
                     </PrimaryButton>
                   </form>
@@ -59,11 +88,14 @@ const Auth = () => {
                     Registro con Facebook
                   </IconButton>
                   <Divider label='registrarse con correo' />
-                  <form>
-                    <TextField label='Nombre completo' placeholder='Ingrese el nombre completo'/>
-                    <TextField label='Correo' placeholder='Ingrese el correo'/>
-                    <TextField label='Contraseña' placeholder='Ingrese la contraseña' type='password'/>
-                    <PrimaryButton>
+                  <form onSubmit={handleSubmitRegister(onSubmitRegister)}>
+                    <TextField {...formRegister("fullName")} label='Nombre completo' placeholder='Ingrese el nombre completo'/>
+                    <p className='error_message'>{errosRegister.fullName?.message}</p>
+                    <TextField {...formRegister("email")} label='Correo' placeholder='Ingrese el correo'/>
+                    <p className='error_message'>{errosRegister.email?.message}</p>
+                    <TextField {...formRegister("password")} label='Contraseña' placeholder='Ingrese la contraseña' type='password'/>
+                    <p className='error_message'>{errosRegister.password?.message}</p>
+                    <PrimaryButton type='submit'>
                       Registrarse
                     </PrimaryButton>
                   </form>
