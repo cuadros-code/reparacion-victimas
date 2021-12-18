@@ -1,4 +1,4 @@
-import { AppRoutes } from 'constants/routes'
+import { AppRoutes } from 'src/constants/routes'
 import Link from 'next/link'
 import { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'

@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import IconButton from 'components/IconButton'
-import styles from '../styles/Auth.module.css'
-import TextField from '../components/TextField';
-import PrimaryButton from 'components/PrimaryButton';
-import Divider from 'components/Divider';
-import { AppRoutes } from 'constants/routes';
+import IconButton from 'src/components/IconButton'
+import styles from 'src/styles/Auth.module.css'
+import TextField from 'src/components/TextField';
+import PrimaryButton from 'src/components/PrimaryButton';
+import Divider from 'src/components/Divider';
+import { AppRoutes } from 'src/constants/routes';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import { useForm } from "react-hook-form";
-import { IFormLogin, IFormRegister } from 'interfaces/Auth.interface';
-import { schemaLogin, schemaRegister } from 'validationSchemes/Auth.validation';
+import { IFormLogin, IFormRegister } from 'src/interfaces/Auth.interface';
+import { schemaLogin, schemaRegister } from 'src/validationSchemes/Auth.validation';
 
 const Auth = () => {
 
