@@ -1,9 +1,9 @@
-import '../styles/globals.css'
+import 'src/styles/globals.css'
 import type { AppProps } from 'next/app'
-import Layout from 'components/Layout'
+import Layout from 'src/components/Layout'
 import { createContext } from 'react'
-import { auth, db } from 'config/firebase.config'
-import { ProviderProps } from 'interfaces/ContextApp.interface'
+import { auth, db } from 'src/config/firebase.config'
+import { ProviderProps } from 'src/interfaces/ContextApp.interface'
 
 export const Firebase = createContext({} as ProviderProps)
 

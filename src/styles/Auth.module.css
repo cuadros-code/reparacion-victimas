@@ -25,7 +25,7 @@
   grid-auto-flow: dense;
 }
 .info{
-  background-image: url('../public/auth_login.svg');
+  background-image: url('../../public/auth_login.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

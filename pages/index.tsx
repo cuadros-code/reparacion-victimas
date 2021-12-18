@@ -1,18 +1,11 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import PrimaryButton from 'components/PrimaryButton'
+import styles from 'src/styles/Home.module.css'
+import PrimaryButton from 'src/components/PrimaryButton'
 
 const Home: NextPage = () => {
   return (
     <div>
-      <Head>
-        <title>Por la verdad</title>
-        <meta name="description" content="App de la verdad" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main} >
         <div className={styles.content} >
           <div className={styles.content_info} >
