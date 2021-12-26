@@ -4,6 +4,10 @@ import styles from 'src/styles/Home.module.css'
 import PrimaryButton from 'src/components/PrimaryButton'
 
 const Home: NextPage = () => {
+
+  const onClickAction = () => {
+    throw new Error('Error al registrar usuario')
+  }
   return (
     <div>
       <main className={styles.main} >
@@ -22,7 +26,7 @@ const Home: NextPage = () => {
               </div>
               <div className={styles.module}>
                 <div className={styles.contentButton}>
-                <PrimaryButton>
+                <PrimaryButton onClick={onClickAction}>
                   Buscar la verdad
                 </PrimaryButton>
                 </div>

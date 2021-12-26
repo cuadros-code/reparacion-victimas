@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Link from 'next/link';
 import IconButton from 'src/components/IconButton'
 import styles from 'src/styles/Auth.module.css'
@@ -10,10 +10,14 @@ import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import { useForm } from "react-hook-form";
 import { IFormLogin, IFormRegister } from 'src/interfaces/Auth.interface';
 import { schemaLogin, schemaRegister } from 'src/validationSchemes/Auth.validation';
+import { signInWithPopup } from 'firebase/auth';
+import { FirebaseContext } from './_app';
 
 const Auth = () => {
 
   const [viewLogin, setViewLogin] = useState(true);
+
+  const { facebookProvider, googleProvider, auth } = useContext(FirebaseContext)
 
   const { 
     register, 
@@ -41,6 +45,24 @@ const Auth = () => {
     console.log(dataForm);
   }
 
+  const signWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log(result.user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const signWithFacebook = async () => {
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
+      console.log(result.user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className={styles.content} >
       <div className={styles.content_form} >
@@ -53,11 +75,8 @@ const Auth = () => {
               viewLogin ?
                 <>
                   <h3>Iniciar sesión</h3>
-                  <IconButton icon='google'>
+                  <IconButton icon='google' onClick={signWithGoogle}>
                     Sesion con Google
-                  </IconButton>
-                  <IconButton icon='facebook'>
-                    Sesion con Facebook
                   </IconButton>
                   <Divider label='sesión con correo' />
                   <form onSubmit={handleSubmit(onSubmitLogin)}>
@@ -83,9 +102,6 @@ const Auth = () => {
                   <h3>Registrarse</h3>
                   <IconButton icon='google'>
                     Registro con Google
-                  </IconButton>
-                  <IconButton icon='facebook'>
-                    Registro con Facebook
                   </IconButton>
                   <Divider label='registrarse con correo' />
                   <form onSubmit={handleSubmitRegister(onSubmitRegister)}>
