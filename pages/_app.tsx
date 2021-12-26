@@ -2,26 +2,31 @@ import 'src/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from 'src/components/Layout'
 import { createContext } from 'react'
-import { auth, db } from 'src/config/firebase.config'
+import { auth, db, googleProvider, facebookProvider } from 'src/config/firebase.config'
 import { ProviderProps } from 'src/interfaces/ContextApp.interface'
+import ErrorBoundary from 'src/components/ErrorBoundary'
 
-export const Firebase = createContext({} as ProviderProps)
+export const FirebaseContext = createContext({} as ProviderProps)
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const { Provider } = Firebase;
+  const { Provider } = FirebaseContext;
 
   return (
-    <Provider
-      value={{
-        auth,
-        db
-      }}
-    >
-      <Layout>
-        <Component {...pageProps} />
-      </Layout> 
-    </Provider>      
+    <ErrorBoundary>
+      <Provider
+        value={{
+          auth,
+          db,
+          facebookProvider,
+          googleProvider,
+        }}
+        >
+        <Layout>
+          <Component {...pageProps} />
+        </Layout> 
+      </Provider>      
+    </ErrorBoundary>
   )
 }
 
