@@ -39,8 +39,12 @@ const useAuthActions = () => {
     
   }
 
-  const logout = () => {
-    
+  const logout = async () => {
+    try {
+      await auth.signOut()
+    } catch (error) {
+      
+    }
   }
 
   const updateDisplayName = ( name: string ) => {
