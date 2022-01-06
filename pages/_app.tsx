@@ -1,19 +1,25 @@
 import 'src/styles/globals.css'
-import type { AppProps } from 'next/app'
 import Layout from 'src/components/Layout'
 import { createContext } from 'react'
 import { auth, db, googleProvider, facebookProvider } from 'src/config/firebase.config'
 import { ProviderProps } from 'src/interfaces/ContextApp.interface'
-import ErrorBoundary from 'src/components/ErrorBoundary'
+import { RecoilRoot } from 'recoil'
+import { AuthGuard } from 'src/guards/AuthGuard'
+import { NextPage } from 'next'
+
+export type NextApplicationPage<P = any, IP = P> = NextPage<P, IP> & {
+  requireAuth?: boolean
+}
 
 export const FirebaseContext = createContext({} as ProviderProps)
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }:  {Component: NextApplicationPage; pageProps: any }) {
 
   const { Provider } = FirebaseContext;
 
   return (
-    <ErrorBoundary>
+    <>
+    <RecoilRoot>
       <Provider
         value={{
           auth,
@@ -23,10 +29,19 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
         >
         <Layout>
-          <Component {...pageProps} />
+        {
+          Component.requireAuth ? (
+              <AuthGuard>
+                <Component {...pageProps} />
+              </AuthGuard>
+            ) : (
+              <Component {...pageProps} />
+            )
+        }
         </Layout> 
       </Provider>      
-    </ErrorBoundary>
+    </RecoilRoot>
+    </>
   )
 }
 

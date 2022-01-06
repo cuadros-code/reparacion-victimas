@@ -12,12 +12,16 @@ import { IFormLogin, IFormRegister } from 'src/interfaces/Auth.interface';
 import { schemaLogin, schemaRegister } from 'src/validationSchemes/Auth.validation';
 import { signInWithPopup } from 'firebase/auth';
 import { FirebaseContext } from './_app';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { authAtom } from 'src/store/state/auth';
 
 const Auth = () => {
 
   const [viewLogin, setViewLogin] = useState(true);
+  const setAuth = useSetRecoilState(authAtom)
+  const userAuth = useRecoilValue(authAtom)
 
-  const { facebookProvider, googleProvider, auth } = useContext(FirebaseContext)
+  const { googleProvider, auth } = useContext(FirebaseContext)
 
   const { 
     register, 
@@ -47,17 +51,16 @@ const Auth = () => {
 
   const signWithGoogle = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      console.log(result.user);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  const signWithFacebook = async () => {
-    try {
-      const result = await signInWithPopup(auth, facebookProvider);
-      console.log(result.user);
+      const { user } = await signInWithPopup(auth, googleProvider);
+      if(user){
+        setAuth({
+          isAuthenticated: true,
+          user: {
+            id    : user.uid,
+            email : user.email!,
+            name  : user.displayName ?? '',
+        }})
+      }
     } catch (error) {
       console.log(error);
     }
@@ -127,5 +130,7 @@ const Auth = () => {
     </div>
   )
 }
+
+Auth.requireAuth = false;
 
 export default Auth
